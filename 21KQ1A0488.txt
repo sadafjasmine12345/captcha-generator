@@ -1,0 +1,117 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FORM</title>
+    <link rel="stylesheet" href="C:\Users\User\OneDrive\Desktop\css.html">
+    <style>
+      body{
+        flex-direction:row;
+        justify-content: center;
+        align-items: center;
+        margin-left:300px;
+        margin-right: 300px;
+        background-image: url("https://png.pngtree.com/back_origin_pic/05/13/55/5179188130a03151cc33301c05dcbfcd.jpg");
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      fieldset{
+        display: block;
+        width: 40px;
+        border-radius: 10px;  
+        margin-top: 25%;
+        line-height: 3;
+        margin-left: 20%;
+        margin-right: 40%;
+        box-shadow: 0 9px 21px 0 rgba(0,0,0,0.9);
+        background-image: url("https://garden.spoonflower.com/c/1671665/p/f/m/9xkVtnKUiQXsBzkBILT0z-P5GUJQIKPFXLU8YkA6364ZyMkFStg/1671665-coober-pedy-small-scale-by-keweenawchris.jpg");
+        background-attachment: fixed;
+        background-size: 100% 100%;
+       
+      }
+      #refreshbtn{
+        background-color:gold;   
+        font-size: 19px;
+        margin-left: 130px;
+        border-radius: 5px;
+      }
+      #checkbtn{
+        background-color:gold;
+        font-size: 19px;
+        text-align: center;
+        margin-left:135px;
+        border-radius: 5px;
+      }
+      #captchaText{
+        font-size: 25px;
+        text-align: center;
+        margin-left:10px;
+        padding:5px 0px;
+        background-image: url("https://codingnepalweb.com/demos/custom-captcha-in-javascript/captcha-bg.png");
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        border-radius: 5px;
+      }
+      #captchaEnter{
+        font-size: 20px;
+        text-align: center;
+        align-items: center;
+        padding: 10px 0px;
+        margin-left: 40px;
+        border-color:darkmagenta;
+        border-radius: 5px;
+        background-color: bisque; 
+      } 
+      input[type=text]:hover{
+       color: blue;
+      }
+      h2{
+        margin-top: 5px;
+      }     
+    </style>
+</head>
+<body>
+    <fieldset>
+      <h2 style="text-align: center;color:maroon"><u>CAPTCHA GENERATOR</u></h2>
+      <form action="">
+        
+        <input type="text" id="captchaText" class="block" style="padding: 5px;">
+         <input type="button" value="Refresh" id="refreshbtn" class="btn"><br>
+        
+        <input type="text" id="captchaEnter" class="block" style="padding: 5px; "placeholder="Enter captcha" >
+       
+        <input type="button" value="Check" id="checkbtn" class="btn" >
+        <br?><br>
+      
+      </form>
+    <script>
+      let captchaText = document.getElementById("captchaText")
+      let captchaEnter = document.getElementById("captchaEnter")
+      let refreshbtn = document.getElementById("refreshbtn");
+      let checkbtn = document.getElementById("checkbtn");
+      let chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      let captcha
+      function generaterCaptcha(){
+        captcha = ""
+        for(i=0;i<6;i++){
+          let index = Math.floor(Math.random()*chars.length);
+          captcha = captcha+chars[index]
+        }
+        captchaText.value = captcha
+      }
+      function validateCaptcha(){
+        if(captcha == captchaEnter.value){
+          alert("valid captcha !!!success")
+        }
+        else{
+          alert("Invalid captcha !!!");
+          captchaEnter.value = ""
+        }
+      }
+      generaterCaptcha()
+      refreshbtn.onclick = generaterCaptcha;
+      checkbtn.onclick = validateCaptcha;
+    </script>
+    </fieldset>
+
+</body>
+</html>
